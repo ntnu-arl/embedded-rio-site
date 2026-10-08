@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Embedded Bare-Metal Radar-Inertial Odometry</title>
-  <meta name="description" content="Tightly coupled radar-inertial error-state Kalman filter executing on a 600 MHz Cortex-M7 microcontroller for resource-constrained aerial navigation.">
+  <meta name="description"
+    content="Tightly coupled radar-inertial error-state Kalman filter executing on a 600 MHz Cortex-M7 microcontroller for resource-constrained aerial navigation.">
   <meta name="author" content="Nicolai Adil Øyen Aatif, Morten Nissov, Kostas Alexis">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Embedded Bare-Metal Radar-Inertial Odometry">
-  <meta property="og:description" content="Tightly coupled radar-inertial state estimation on a single-core microcontroller with zero dynamic memory allocation and closed-loop PX4 flight.">
+  <meta property="og:description"
+    content="Tightly coupled radar-inertial state estimation on a single-core microcontroller with zero dynamic memory allocation and closed-loop PX4 flight.">
   <meta property="og:image" content="assets/images/carrier_board_top.png">
 
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📡</text></svg>">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📡</text></svg>">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
 
   <!-- Minimal Header -->
@@ -41,7 +46,8 @@
       <div class="nav-actions">
         <button id="theme-toggle-btn" class="btn-icon" aria-label="Toggle color theme" title="Toggle theme">
           <span id="theme-icon">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="5"></circle>
               <line x1="12" y1="1" x2="12" y2="3"></line>
               <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -55,9 +61,11 @@
           </span>
         </button>
 
-        <a href="https://github.com/ntnu-arl/embedded_rio" target="_blank" rel="noopener noreferrer" class="btn-small-link">
+        <a href="https://github.com/ntnu-arl/embedded_rio" target="_blank" rel="noopener noreferrer"
+          class="btn-small-link">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
           </svg>
           <span>GitHub</span>
         </a>
@@ -71,14 +79,16 @@
   <main class="container">
     <section class="hero" id="overview">
       <h1 class="hero-title">Embedded Bare-Metal<br>Radar-Inertial Odometry</h1>
-      
+
       <p class="hero-subtitle">
-        Tightly coupled 6-DoF radar-inertial state estimation running entirely on a single-core 600&nbsp;MHz microcontroller, enabling resilient closed-loop flight on an unmodified PX4 autopilot under strict SWaP-C constraints.
+        Tightly coupled 6-DoF radar-inertial state estimation running entirely on a single-core 600&nbsp;MHz
+        microcontroller, enabling resilient closed-loop flight on an unmodified PX4 autopilot under strict SWaP-C
+        constraints.
       </p>
 
       <div class="authors">
-        <a href="mailto:nicolaiadil.aatif@gmail.com">Nicolai Adil Øyen Aatif</a> &bull; 
-        <a href="mailto:morten.c.nissov@gmail.com">Morten Nissov</a> &bull; 
+        <a href="mailto:nicolaiadil.aatif@gmail.com">Nicolai Adil Øyen Aatif</a> &bull;
+        <a href="mailto:morten.c.nissov@gmail.com">Morten Nissov</a> &bull;
         <a href="mailto:konstantinos.alexis@ntnu.no">Kostas Alexis</a>
       </div>
       <div class="affiliation">
@@ -88,22 +98,38 @@
       <!-- Main Action Links -->
       <div class="hero-buttons">
         <a href="https://arxiv.org/abs/2610.07278" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
           Paper on arXiv
         </a>
 
-        <a href="https://github.com/ntnu-arl/embedded_rio" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        <a href="https://github.com/ntnu-arl/embedded_rio" target="_blank" rel="noopener noreferrer"
+          class="btn btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
           Firmware Code
         </a>
 
-        <a href="https://github.com/ntnu-arl/embedded_rio-pcb" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="2" width="20" height="20" rx="4"></rect><circle cx="8" cy="8" r="2"></circle><circle cx="16" cy="8" r="2"></circle><circle cx="8" cy="16" r="2"></circle><circle cx="16" cy="16" r="2"></circle></svg>
+        <a href="https://github.com/ntnu-arl/embedded_rio-pcb" target="_blank" rel="noopener noreferrer"
+          class="btn btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+            <circle cx="8" cy="8" r="2"></circle>
+            <circle cx="16" cy="8" r="2"></circle>
+            <circle cx="8" cy="16" r="2"></circle>
+            <circle cx="16" cy="16" r="2"></circle>
+          </svg>
           PCB Hardware
         </a>
 
         <a href="#citation" class="btn btn-secondary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 11H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6"></path></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M10 11H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6"></path>
+          </svg>
           BibTeX
         </a>
       </div>
@@ -121,29 +147,44 @@
 
     <!-- Abstract Box -->
     <div class="abstract-box">
-      <strong>Abstract &mdash;</strong> Compact extraplanetary rovers and micro aerial vehicles require robust state estimation frameworks designed to operate under strict computational constraints in unforgiving environments. Typical solutions involving vision or LiDAR are computationally expensive and degrade in darkness, dust, fog, or smoke. Frequency Modulated Continuous Wave (FMCW) millimeter-wave radar directly measures radial velocity while resisting perceptual degradation. We propose an embedded radar-inertial estimator where all sensor drivers, data processing, and aided inertial navigation execute on a single-core bare-metal microcontroller. Flight experiments demonstrate translational APE of 0.51 &minus; 0.82&nbsp;m and RPE &lt;3&nbsp;% against motion capture, alongside closed-loop flight through an unmodified PX4 flight stack.
+      <strong>Abstract &mdash;</strong> Compact extraplanetary rovers and micro aerial vehicles require robust state
+      estimation frameworks designed to operate under strict computational constraints in unforgiving environments.
+      Typical solutions involving vision or LiDAR are computationally expensive and degrade in darkness, dust, fog, or
+      smoke. Frequency Modulated Continuous Wave (FMCW) millimeter-wave radar directly measures radial velocity while
+      resisting perceptual degradation. We propose an embedded radar-inertial estimator where all sensor drivers, data
+      processing, and aided inertial navigation execute on a single-core bare-metal microcontroller. Flight experiments
+      demonstrate translational APE of 0.51 &minus; 0.82&nbsp;m and RPE &lt;3&nbsp;% against motion capture, alongside
+      closed-loop flight through an unmodified PX4 flight stack.
     </div>
 
     <!-- System Architecture & Hardware Section -->
     <section class="section" id="system">
       <h2 class="section-title">System Architecture &amp; Hardware</h2>
       <p class="section-desc">
-        A clean division of computation: on-chip radar signal processing, bare-metal microcontroller estimation, and downstream autopilot flight control.
+        A clean division of computation: on-chip radar signal processing, bare-metal microcontroller estimation, and
+        downstream autopilot flight control.
       </p>
 
       <div class="card-grid-2">
         <!-- Architecture Diagram -->
         <div class="panel-card">
           <h3 class="panel-card-title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
             Compute Partitioning
           </h3>
-          <div class="image-frame" data-zoomable data-caption="Figure 1: System architecture and division of computation between radar SoC, microcontroller, and flight controller.">
+          <div class="image-frame" data-zoomable
+            data-caption="Figure 1: System architecture and division of computation between radar SoC, microcontroller, and flight controller.">
             <img src="assets/images/system_overview.png" alt="System architecture" loading="lazy">
           </div>
           <p class="image-caption">
-            <strong>1. Radar SoC (TI IWR6843AOP):</strong> On-chip range/Doppler/AoA FFT &rarr; 25 Hz sparse point cloud over UART.<br>
-            <strong>2. Microcontroller (Teensy 4.0):</strong> 200 Hz IMU propagation, 50 Hz baro aiding, scalar radar ESKF updates.<br>
+            <strong>1. Radar SoC (TI IWR6843AOP):</strong> On-chip range/Doppler/AoA FFT &rarr; 25 Hz sparse point cloud
+            over UART.<br>
+            <strong>2. Microcontroller (Teensy 4.0):</strong> 200 Hz IMU propagation, 50 Hz baro aiding, scalar radar
+            ESKF updates.<br>
             <strong>3. Flight Controller (Pixhawk 6C):</strong> 50 Hz MAVLink <code>ODOMETRY</code> fused into PX4 EKF2.
           </p>
         </div>
@@ -151,7 +192,10 @@
         <!-- Hardware Module Tabs -->
         <div class="panel-card">
           <h3 class="panel-card-title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            </svg>
             Sensor Carrier Module
           </h3>
 
@@ -164,34 +208,41 @@
 
           <!-- Tab Content: Top View -->
           <div class="tab-content active" id="tab-top">
-            <div class="image-frame" data-zoomable data-caption="Carrier board top view showing Teensy 4.0 MCU, Bosch BMI088 IMU, and Bosch BMP388 barometer.">
+            <div class="image-frame" data-zoomable
+              data-caption="Carrier board top view showing Teensy 4.0 MCU, Bosch BMI088 IMU, and Bosch BMP388 barometer.">
               <img src="assets/images/carrier_board_top.png" alt="Carrier board top view" loading="lazy">
             </div>
-            <p class="image-caption">Top view: Teensy 4.0, BMI088 6-DoF IMU (200 Hz SPI), and BMP388 barometer (50 Hz SPI).</p>
+            <p class="image-caption">Top view: Teensy 4.0, BMI088 6-DoF IMU (200 Hz SPI), and BMP388 barometer (50 Hz
+              SPI).</p>
           </div>
 
           <!-- Tab Content: Bottom View -->
           <div class="tab-content" id="tab-bottom">
-            <div class="image-frame" data-zoomable data-caption="Radar module bottom view showing the TI IWR6843AOP antenna array.">
+            <div class="image-frame" data-zoomable
+              data-caption="Radar module bottom view showing the TI IWR6843AOP antenna array.">
               <img src="assets/images/carrier_board_bottom.png" alt="Radar module bottom view" loading="lazy">
             </div>
-            <p class="image-caption">Bottom view: TI IWR6843AOPEVM 60 GHz radar module with &plusmn;60&deg; azimuth/elevation field of view.</p>
+            <p class="image-caption">Bottom view: TI IWR6843AOPEVM 60 GHz radar module with &plusmn;60&deg;
+              azimuth/elevation field of view.</p>
           </div>
 
           <!-- Tab Content: CAD -->
           <div class="tab-content" id="tab-cad">
-            <div class="image-frame" data-zoomable data-caption="Exploded CAD assembly showing 3D printed mount and vibration damping.">
-              <img src="assets/images/cad_assembly.png" alt="CAD exploded module assembly" loading="lazy">
+            <div class="image-frame" data-zoomable
+              data-caption="CAD assembly showing 3D printed mount and vibration damping.">
+              <img src="assets/images/cad_assembly.png" alt="CAD module assembly" loading="lazy">
             </div>
-            <p class="image-caption">Exploded CAD view: 3D printed carrier mount designed for 5-inch drone airframes.</p>
+            <p class="image-caption">CAD view: 3D printed carrier mount designed for 5-inch drone airframes.</p>
           </div>
 
           <!-- Tab Content: Schematic -->
           <div class="tab-content" id="tab-sch">
-            <div class="image-frame" data-zoomable data-caption="KiCad electrical schematic of the radar-inertial carrier board.">
+            <div class="image-frame" data-zoomable
+              data-caption="KiCad electrical schematic of the radar-inertial carrier board.">
               <img src="assets/images/schematic.png" alt="KiCad electrical schematic" loading="lazy">
             </div>
-            <p class="image-caption">Electrical schematic: Level shifting, SPI bus routing, and Pixhawk UART interface.</p>
+            <p class="image-caption">Electrical schematic: Level shifting, SPI bus routing, and Pixhawk UART interface.
+            </p>
           </div>
 
           <div class="specs-row">
@@ -207,7 +258,8 @@
     <section class="section" id="method">
       <h2 class="section-title">How RIO Works</h2>
       <p class="section-desc">
-        A tightly coupled Error-State Kalman Filter (ESKF) processing individual radar detections without scan matching or intermediate 3D velocity fitting.
+        A tightly coupled Error-State Kalman Filter (ESKF) processing individual radar detections without scan matching
+        or intermediate 3D velocity fitting.
       </p>
 
       <div class="method-grid">
@@ -216,7 +268,8 @@
           <div class="method-num">Step 1 &bull; 200 Hz</div>
           <h3 class="method-title">Inertial Propagation</h3>
           <p class="method-text">
-            High-rate IMU accelerometer and gyroscope measurements drive 3D kinematics to continuously propagate position, velocity, orientation, and covariance.
+            High-rate IMU accelerometer and gyroscope measurements drive 3D kinematics to continuously propagate
+            position, velocity, orientation, and covariance.
           </p>
         </div>
 
@@ -225,7 +278,8 @@
           <div class="method-num">Step 2 &bull; 25 Hz</div>
           <h3 class="method-title">Scalar Radial-Speed Updates</h3>
           <p class="method-text">
-            Each radar return is processed individually along its line-of-sight bearing, avoiding fragile 3D velocity inversions from sparse point clouds.
+            Each radar return is processed individually along its line-of-sight bearing, avoiding fragile 3D velocity
+            inversions from sparse point clouds.
           </p>
         </div>
 
@@ -234,7 +288,8 @@
           <div class="method-num">Step 3 &bull; 50 Hz</div>
           <h3 class="method-title">Anchored Baro Aiding</h3>
           <p class="method-text">
-            Barometric pressure is differenced against the initial ground reference at takeoff, cancelling sensor offsets and eliminating vertical altitude drift.
+            Barometric pressure is differenced against the initial ground reference at takeoff, cancelling sensor
+            offsets and eliminating vertical altitude drift.
           </p>
         </div>
 
@@ -243,7 +298,8 @@
           <div class="method-num">Step 4 &bull; In-Flight</div>
           <h3 class="method-title">Calibration &amp; Gating</h3>
           <p class="method-text">
-            Statistical innovation gating rejects multipath and dynamic clutter, while the 6-DoF radar–IMU lever arm and rotation are calibrated online.
+            Statistical innovation gating rejects multipath and dynamic clutter, while the 6-DoF radar–IMU lever arm and
+            rotation are calibrated online.
           </p>
         </div>
       </div>
@@ -253,59 +309,68 @@
     <section class="section" id="results">
       <h2 class="section-title">Experimental Validation</h2>
       <p class="section-desc">
-        Flight validation across 5 datasets: outdoor forest slalom, high-speed open-field pass, indoor motion capture ground truth, and closed-loop PX4 position control.
+        Flight validation across 5 datasets: outdoor forest slalom, high-speed open-field pass, indoor motion capture
+        ground truth, and closed-loop PX4 position control.
       </p>
 
       <!-- 4 Visual Result Cards in 2x2 Grid -->
       <div class="results-grid">
         <!-- 1. Trajectories -->
         <div class="result-card">
-          <div class="result-image-box" data-zoomable data-caption="Figure 3: Horizontal trajectories across forest slalom, maximum-speed field pass (up to 12.45 m/s), and indoor circular flight vs Qualisys motion capture.">
+          <div class="result-image-box" data-zoomable
+            data-caption="Figure 3: Horizontal trajectories across forest slalom, maximum-speed field pass (up to 12.45 m/s), and indoor circular flight vs Qualisys motion capture.">
             <img src="assets/images/fig3_trajectories.png" alt="Horizontal trajectories" loading="lazy">
           </div>
           <div class="result-body">
             <h3 class="result-title">Horizontal Trajectory Tracking</h3>
             <p class="result-desc">
-              Accurately tracks agile flight in dense forest clutter, agrees qualitatively with GPS-aided EKF2 outdoors, and aligns closely with millimeter-level motion capture indoors.
+              Accurately tracks agile flight in dense forest clutter, agrees qualitatively with GPS-aided EKF2 outdoors,
+              and aligns closely with millimeter-level motion capture indoors.
             </p>
           </div>
         </div>
 
         <!-- 2. Velocities -->
         <div class="result-card">
-          <div class="result-image-box" data-zoomable data-caption="Figure 5: Estimated 3-axis velocity against available reference across forest, field, and indoor flights.">
+          <div class="result-image-box" data-zoomable
+            data-caption="Figure 5: Estimated 3-axis velocity against available reference across forest, field, and indoor flights.">
             <img src="assets/images/fig5_velocity.png" alt="Estimated velocity tracking" loading="lazy">
           </div>
           <div class="result-body">
             <h3 class="result-title">3-Axis Velocity Observability</h3>
             <p class="result-desc">
-              Doppler radial measurements directly constrain body velocity, reliably tracking rapid accelerations and high-rate turns without scan matching.
+              Doppler radial measurements directly constrain body velocity, reliably tracking rapid accelerations and
+              high-rate turns without scan matching.
             </p>
           </div>
         </div>
 
         <!-- 3. Doppler Aliasing Robustness -->
         <div class="result-card">
-          <div class="result-image-box" data-zoomable data-caption="Figure 4: Calculated Doppler speed vs sensor unambiguous Doppler limit (9.68 m/s). Platform reached 12.45 m/s without filter divergence.">
+          <div class="result-image-box" data-zoomable
+            data-caption="Figure 4: Calculated Doppler speed vs sensor unambiguous Doppler limit (9.68 m/s). Platform reached 12.45 m/s without filter divergence.">
             <img src="assets/images/fig4_doppler.png" alt="Doppler speed exceeding sensor limit" loading="lazy">
           </div>
           <div class="result-body">
             <h3 class="result-title">Doppler Aliasing Resilience (12.45 m/s)</h3>
             <p class="result-desc">
-              During the high-speed pass, the drone reached 12.45 m/s, exceeding the radar's 9.68 m/s unambiguous limit. The &chi;&sup2; innovation gate rejected aliased returns, keeping estimation stable.
+              During the high-speed pass, the drone reached 12.45 m/s, exceeding the radar's 9.68 m/s unambiguous limit.
+              The &chi;&sup2; innovation gate rejected aliased returns, keeping estimation stable.
             </p>
           </div>
         </div>
 
         <!-- 4. Closed-Loop Flight -->
         <div class="result-card">
-          <div class="result-image-box" data-zoomable data-caption="Figure 8: Estimated horizontal trajectory during closed-loop position holding with an unmodified PX4 autopilot.">
+          <div class="result-image-box" data-zoomable
+            data-caption="Figure 8: Estimated horizontal trajectory during closed-loop position holding with an unmodified PX4 autopilot.">
             <img src="assets/images/fig8_closed_loop.png" alt="Closed-loop PX4 flight trajectory" loading="lazy">
           </div>
           <div class="result-body">
             <h3 class="result-title">Closed-Loop PX4 Position Control</h3>
             <p class="result-desc">
-              Streaming 50 Hz MAVLink odometry into PX4 EKF2 enabled stable position holding and responsive manual flight control without GPS, vision, or LiDAR.
+              Streaming 50 Hz MAVLink odometry into PX4 EKF2 enabled stable position holding and responsive manual
+              flight control without GPS, vision, or LiDAR.
             </p>
           </div>
         </div>
@@ -383,7 +448,10 @@
       <div class="card-grid-2">
         <div class="panel-card">
           <h3 class="panel-card-title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
             Firmware Repository
           </h3>
           <p class="image-caption" style="margin-bottom: 12px;">
@@ -391,16 +459,24 @@
           </p>
           <div class="code-box">
             <code>git clone https://github.com/ntnu-arl/embedded_rio.git</code>
-            <button class="copy-button" data-copy-text="git clone https://github.com/ntnu-arl/embedded_rio.git">Copy</button>
+            <button class="copy-button"
+              data-copy-text="git clone https://github.com/ntnu-arl/embedded_rio.git">Copy</button>
           </div>
-          <a href="https://github.com/ntnu-arl/embedded_rio" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width: 100%; justify-content: center;">
+          <a href="https://github.com/ntnu-arl/embedded_rio" target="_blank" rel="noopener noreferrer"
+            class="btn btn-secondary" style="width: 100%; justify-content: center;">
             View Firmware on GitHub &rarr;
           </a>
         </div>
 
         <div class="panel-card">
           <h3 class="panel-card-title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="4"></rect><circle cx="8" cy="8" r="2"></circle><circle cx="16" cy="8" r="2"></circle><circle cx="8" cy="16" r="2"></circle><circle cx="16" cy="16" r="2"></circle></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+              <circle cx="8" cy="8" r="2"></circle>
+              <circle cx="16" cy="8" r="2"></circle>
+              <circle cx="8" cy="16" r="2"></circle>
+              <circle cx="16" cy="16" r="2"></circle>
+            </svg>
             PCB &amp; Hardware Repository
           </h3>
           <p class="image-caption" style="margin-bottom: 12px;">
@@ -408,9 +484,11 @@
           </p>
           <div class="code-box">
             <code>git clone https://github.com/ntnu-arl/embedded_rio-pcb.git</code>
-            <button class="copy-button" data-copy-text="git clone https://github.com/ntnu-arl/embedded_rio-pcb.git">Copy</button>
+            <button class="copy-button"
+              data-copy-text="git clone https://github.com/ntnu-arl/embedded_rio-pcb.git">Copy</button>
           </div>
-          <a href="https://github.com/ntnu-arl/embedded_rio-pcb" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width: 100%; justify-content: center;">
+          <a href="https://github.com/ntnu-arl/embedded_rio-pcb" target="_blank" rel="noopener noreferrer"
+            class="btn btn-secondary" style="width: 100%; justify-content: center;">
             View PCB on GitHub &rarr;
           </a>
         </div>
@@ -439,8 +517,10 @@
       </div>
       <ul class="footer-links">
         <li><a href="https://arxiv.org/abs/2610.07278" target="_blank" rel="noopener noreferrer">arXiv</a></li>
-        <li><a href="https://github.com/ntnu-arl/embedded_rio" target="_blank" rel="noopener noreferrer">Firmware</a></li>
-        <li><a href="https://github.com/ntnu-arl/embedded_rio-pcb" target="_blank" rel="noopener noreferrer">PCB</a></li>
+        <li><a href="https://github.com/ntnu-arl/embedded_rio" target="_blank" rel="noopener noreferrer">Firmware</a>
+        </li>
+        <li><a href="https://github.com/ntnu-arl/embedded_rio-pcb" target="_blank" rel="noopener noreferrer">PCB</a>
+        </li>
         <li><a href="https://www.autonomousrobotslab.com/" target="_blank" rel="noopener noreferrer">ARL Lab</a></li>
       </ul>
     </footer>
@@ -458,4 +538,5 @@
   <!-- JavaScript -->
   <script src="assets/js/main.js"></script>
 </body>
+
 </html>
